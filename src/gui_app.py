@@ -16,6 +16,21 @@ import detect_postit
 
 push_flag = False
 
+root = tk.Tk()
+root.geometry("400x500")
+root.title("PostIt Detecter(MSK) v2.0")
+
+lable1 = tk.Label(text=u'画像URL')
+lable1.pack(anchor=tk.W,padx=5)
+
+TextBox1 = tk.Entry(width=50)
+TextBox1.insert(tk.END,"")
+TextBox1.pack(anchor=tk.W,padx=5,pady=5)
+
+button = tk.Button(root,text="検出開始",command=lambda:pushed(button))
+button.pack(anchor=tk.W,padx=5,pady=5)
+
+
 def pushed(self):
     global push_flag
 
@@ -24,30 +39,14 @@ def pushed(self):
     else:
         push_flag=True
 
+    image_path = TextBox1.get()
+
+    detect_postit.detectPostIt(image_path)
+
 def app_postIt():
-    root = tk.Tk()
-    root.geometry("400x500")
-    root.title("PostIt Detecter(MSK) v2.0")
-
-    lable1 = tk.Label(text=u'マシンID')
-    lable1.pack(anchor=tk.W,padx=5)
-
-    TextBox1 = tk.Entry(width=50)
-    TextBox1.insert(tk.END,"")
-    TextBox1.pack(anchor=tk.W,padx=5,pady=5)
-
-    button = tk.Button(root,text="検出開始",command=lambda:pushed(button))
-    button.pack(anchor=tk.W,padx=5,pady=5)
-
+    global root
 
     root.mainloop()
 
-    filename = TextBox1.get()
-    detect_postit.detectPostIt(filename)
-
-
 if __name__ == '__main__':
     app_postIt()
-
-
-

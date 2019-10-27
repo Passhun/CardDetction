@@ -44,7 +44,7 @@ def thr_rgb(img):
                 br = int(b)-int(r)
                 gr = int(g)-int(r)
                 bg = int(b)-int(g)
-                if (br<-30) and (gr<-30):
+                if (br<-60) and (gr<-60):
                         # QR_MID1.JPG # marker
                         rslt_img.itemset((i,j),255)
                 # if (br>-12) and (gr>15):
@@ -183,5 +183,5 @@ def detectPostIt(image_path):
 
 if __name__ == '__main__':
         # img_path = './image/20190716/IMG_1972.JPG'
-        img_path = './image/0910_3.jpg'
+        img_path = '../image/0910_3.jpg'
         detectPostIt(img_path)
