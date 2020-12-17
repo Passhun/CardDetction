@@ -122,5 +122,5 @@ def detectPostIt(image_path):
 if __name__ == '__main__':
     # img_path = './image/20190716/IMG_1972.JPG'
     # img_path = '../image/0910_3.jpg'
-    img_path = './image/movie2.MOV'
+    img_path = '../image/movie2.MOV'
     detectPostIt(img_path)

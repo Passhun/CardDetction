@@ -112,7 +112,7 @@ def detectPostIt(image_path):
         elapsed_time = time.time() - start
         print("elapsed time:{0}".format(elapsed_time) + "[sec]")
         # 輪郭抽出
-        contours = cv2.findContours(ret, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)[1]
+        contours = cv2.findContours(ret, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)[0]
         im_cntr = im_rs.copy()
         im_cntr = cv2.drawContours(im_cntr, contours, -1, (0,255,0), 3)
         # 輪郭の周囲長が画像の1/50以上なら磁石とする
@@ -169,7 +169,7 @@ def detectPostIt(image_path):
         cv2.imshow("Result",im_cntrL)
 
         # CSV出力
-        with open(r'\\10.122.21.25\msk\XY_Data\xy_data.csv','w') as f:
+        with open(r'\\150.17.244.201\msk\XY_Data\xy_data.csv','w') as f:
                 writer = csv.writer(f,lineterminator='\n')
                 writer.writerows(output_csv)
 
